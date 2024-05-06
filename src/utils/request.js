@@ -20,4 +20,14 @@ const post = async (path, options) => {
   }
 };
 
-export { get, post };
+const patch = async (path, options) => {
+  try {
+    const res = await request.patch(path, options);
+    return res;
+  } catch (error) {
+    console.error("Error during PATCH request:", error);
+    throw error;
+  }
+};
+
+export { get, post, patch };

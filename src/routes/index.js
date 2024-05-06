@@ -1,3 +1,4 @@
+import Home from "~/pages/Admin/Home";
 import User from "~/pages/Admin/User";
 
 const { default: routes } = require("~/config/routes");
@@ -8,6 +9,10 @@ const publicRoutes = [
   {
     path: routes.login,
     Component: Login,
+  },
+  {
+    path: routes.home,
+    Component: Home,
   },
   {
     path: routes.users,

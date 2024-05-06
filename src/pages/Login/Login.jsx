@@ -2,6 +2,7 @@ import { Button, Input, Spinner } from "@nextui-org/react";
 import { useState } from "react";
 import emailValidation from "~/utils/emailValidation";
 import {authenticate} from '~/services/ApiServices/AuthService';
+import routes from "~/config/routes";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,8 +34,9 @@ function Login() {
     if(res.error) {
       alert(res.message);
     }
+    localStorage.setItem("accessToken", res.accessToken);
     if(res.success) {
-      window.location.href="/home";
+      window.location.href = routes.home;
     }
   }
 
@@ -44,7 +46,7 @@ function Login() {
       <div className="w-1/2">
         <img title="cisnw_logo" src={require("~/assets/images/logo/cisnw_logo.jpg")}/>
       </div>
-      <div className="flex-1 p-12">
+      <div className="flex-1 p-12 box rounded-3xl">
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1 className="text-6xl text-bold mb-6 text-center text-orange-600">Login</h1>
         <Input
@@ -65,7 +67,7 @@ function Login() {
           errorMessage={isPasswordInvalid && "Please enter a password"}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button size="lg" type="submit" color="warning" style={{backgroundColor: "#0052F9", color: "#fff"}}>
+        <Button className="w-full" type="submit" color="warning" style={{backgroundColor: "#0052F9", color: "#fff"}}>
             Login
         </Button>
       </form>
