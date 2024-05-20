@@ -1,10 +1,7 @@
-# Getting Started with Create React App
+# Music Web Admin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+# Giới thiệu
+Music Web Admin cho phép người dùng thống kê số lượng bài hát, số lượng tài khoản, quản lý tài khoản.
 
 ### `npm start`
 
